@@ -14,6 +14,8 @@ AI 驱动开发的 Next.js 16 应用，展示 MCP (Model Context Protocol) 在�
 - ✅ Git 初始化、提交、推送到 GitHub
 - ✅ 错误诊断和修复（缺少依赖、配置错误）
 - ✅ API 端点创建（包含错误处理）
+- ✅ E2E 测试配置（Playwright + 测试用例）
+- ✅ 错误监控配置（Sentry + 测试页面）
 - ✅ 自动化测试执行
 - ✅ 文档查询（Next.js、React、Ant Design 等）
 
@@ -29,11 +31,17 @@ AI 驱动开发的 Next.js 16 应用，展示 MCP (Model Context Protocol) 在�
 
 ## 🛠️ 技术栈
 
+### 核心框架
 - **Next.js** 16.1.1 (App Router)
 - **React** 19.2.3 + React Compiler
 - **TypeScript** 5.9.3
 - **Tailwind CSS** 4.1.18
+
+### 开发工具
 - **Biome** 2.3.11 (Linter + Formatter)
+- **Playwright** 1.57.0 (E2E 测试)
+- **Sentry** 10.33.0 (错误监控)
+- **Husky + lint-staged** (Git hooks)
 
 ---
 
@@ -334,7 +342,25 @@ npm run dev
 
 # 测试 API
 curl http://localhost:3000/api/hello
+
+# 运行 E2E 测试
+npm test
+
+# 使用 UI 模式运行测试
+npm run test:ui
 ```
+
+### 配置 Sentry（可选）
+
+```bash
+# 复制环境变量模板
+cp .env.local.example .env.local
+
+# 编辑 .env.local，填入你的 Sentry DSN
+# 访问 http://localhost:3000/sentry-example 测试
+```
+
+详细文档请查看 [TESTING.md](./TESTING.md)
 
 ---
 

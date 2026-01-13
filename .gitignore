@@ -50,3 +50,12 @@ yarn-error.log*
 *.swp
 *.swo
 *~
+
+# Playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
+# Sentry
+.sentryclirc
+sentry.properties
