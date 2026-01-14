@@ -32,11 +32,13 @@ test.describe("API Endpoints", () => {
 		});
 
 		test("should handle invalid JSON", async ({ request }) => {
-			const response = await request.post("/api/hello", {
+			// 使用 fetch 发送原始的无效 JSON（不自动序列化）
+			const response = await request.fetch("/api/hello", {
+				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
 				},
-				data: "invalid json",
+				body: "{invalid json}",
 			});
 
 			expect(response.status()).toBe(400);
